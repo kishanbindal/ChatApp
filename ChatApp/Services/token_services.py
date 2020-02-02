@@ -1,4 +1,7 @@
 import jwt
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 class Generatetoken:
@@ -19,7 +22,10 @@ class Generatetoken:
         return self._encode(payload)
 
     def _encode(self, payload):
-        return jwt.encode(payload, self.secret_key, algorithm='HS256')
+        token = jwt.encode(payload, self.secret_key, algorithm='HS256').decode('utf-8')
+        # token = "".join(chr(x) for x in bytearray(token))
+        return token
 
     def decode_token(self,  token):
+        logging.info(f'Token for decoding : {token}')
         return jwt.decode(token, self.secret_key, algorithms='HS256')

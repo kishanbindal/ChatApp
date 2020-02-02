@@ -6,7 +6,7 @@ class UserFunctions:
 
     def get_reg_data(self):
         username = self.request.data.get('username')
-        email =  self.request.data.get('email')
+        email = self.request.data.get('email')
         password = self.request.data.get('password')
         return self._validate_reg_request_data(username, email, password)
 
@@ -34,7 +34,7 @@ class UserFunctions:
         else:
             return email, password
 
-    def get_reset_password_data(self):
+    def get_forgot_password_data(self):
 
         email = self.request.data.get('email')
         return self._validate_forgot_data(email)

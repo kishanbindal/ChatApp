@@ -24,8 +24,8 @@
     <div>
         <body>
             <p>Hello {user.username},</p>
-            <p>Please click the link below to activate your account on {domain}</p>
-            <a href="http://{{domain}}{% url 'account-activation' token=token %}"><button> Activate </button></a>
+            <p>Please click the link below to reset your password on {domain}</p>
+            <a href="http://{{domain}}{% url 'reset-password' token=token %}"><button> Activate </button></a>
         </body>
     </div>
 </html>
